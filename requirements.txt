@@ -1,0 +1,7 @@
+transformers
+faiss-cpu
+rank_bm25
+PyPDF2
+psutil
+pandas
+streamlit
