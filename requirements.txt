@@ -5,3 +5,4 @@ PyPDF2
 psutil
 pandas
 streamlit
+torch
