@@ -8,7 +8,7 @@ pip install --upgrade torch streamlit
 pip install torch==2.0.1
 
 Finally for running project, use below command only:
-streamlit run ragChatbot.py
+streamlit run ragChatbot2.py
 
 ---
 

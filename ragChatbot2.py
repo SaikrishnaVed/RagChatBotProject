@@ -171,10 +171,20 @@ def main():
     st.write("Ask questions about Apple's 2023 financial statements.")
 
     # Load financial documents
-    pdf_path = "Assets/Apple_2023_2024.pdf"
+    pdf_path = os.path.join("assets", "Apple_2023_2024.pdf")
+
+    # Check if the default PDF file exists
     if not os.path.exists(pdf_path):
-        st.error("Financial document not found. Please ensure the PDF is uploaded under 'Assets/Apple_2023.pdf'.")
-        return None
+        st.warning("Default financial document not found. Please upload a PDF file.")
+        uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
+        if uploaded_file is not None:
+            # Save the uploaded file temporarily
+            with open(pdf_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
+            st.success("File uploaded successfully!")
+        else:
+            st.error("Please upload a PDF file to proceed.")
+            return None
 
     # Extract text from PDF
     text = extract_text_from_pdf(pdf_path)
